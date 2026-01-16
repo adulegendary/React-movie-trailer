@@ -1,17 +1,74 @@
-# React + Vite
+# Movie App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern React movie application with search, favorites, and trailer viewing functionality powered by The Movie Database (TMDB) API.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- 🎬 Browse popular movies
+- 🔍 Search for movies by title
+- ❤️ Add movies to favorites (saved in localStorage)
+- 🎥 Watch movie trailers (YouTube embed)
+- 📱 Responsive design with optimized grid layout
 
-## React Compiler
+## Setup
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+1. Clone the repository
+```bash
+git clone <your-repo-url>
+cd React_first_Project
+```
 
-## Expanding the ESLint configuration
+2. Install dependencies
+```bash
+npm install
+```
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
-# React-movie-trailer
+3. Create a `.env` file
+```bash
+cp .env.example .env
+```
+
+4. Get your TMDB API key
+   - Visit [TMDB API Settings](https://www.themoviedb.org/settings/api)
+   - Sign up for a free account if you don't have one
+   - Request an API key
+   - Add it to your `.env` file:
+   ```
+   VITE_TMDB_API_KEY=your_actual_api_key_here
+   ```
+
+5. Run the development server
+```bash
+npm run dev
+```
+
+## Technologies Used
+
+- **React 19** - UI library
+- **React Router** - Client-side routing
+- **Vite** - Build tool and dev server
+- **TMDB API** - Movie data and trailers
+- **Context API** - Global state management for favorites
+- **localStorage** - Persistent favorites storage
+
+## Project Structure
+
+```
+src/
+├── Compenentes/         # Reusable components
+│   ├── MovieCard.jsx    # Movie card with poster and favorite button
+│   ├── NavBar.jsx       # Navigation bar
+│   └── TrailerModal.jsx # Modal for YouTube trailers
+├── pages/               # Page components
+│   ├── Home.jsx         # Home page with movie grid
+│   └── favorite.jsx     # Favorites page
+├── context/             # React Context
+│   └── MovieContext.jsx # Favorites state management
+├── service/             # API services
+│   └── api.js           # TMDB API calls
+└── css/                 # Stylesheets
+```
+
+## License
+
+MIT
